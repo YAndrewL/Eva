@@ -1,0 +1,30 @@
+# Eva Model Configuration
+ds:  # dataset
+    patch_size: 224
+    token_size: 8
+    marker_dim: 3072 
+    mask_strategy: "random"  # Required for model initialization
+    mask_ratio: 0.75  # Required for model initialization
+
+cm:  # channel model
+    dim: 512
+    mlp_ratio: 4
+    n_heads: 4
+    n_layers: 2
+    patch_embed_channel: "agnostic"  # Options: "agnostic", "aware"
+
+pm:  # patch model
+    dim: 768
+    mlp_ratio: 4
+    n_heads: 12
+    n_layers: 12
+    out_dim: 512
+    channel_recon: "repeat"
+
+de:  # decoder model
+    dim: 512
+    flatten: "patch"  # Options: "all", "channel", "patch"
+    marker_dim: 512
+    mlp_ratio: 4
+    n_heads: 16
+    n_layers: 8
