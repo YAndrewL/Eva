@@ -2,23 +2,20 @@
 
 ## Overview
 
-Eva (**E**ncoding of **v**isual **a**tlas) is a foundation model for tissue imaging data that learns complex spatial representations of tissues at the molecular, cellular, and patient level. Eva uses a novel vision transformer architecture and is pretrained on masked image reconstruction of spatial proteomics and matched histopathology. 
+Eva (**E**ncoding of **v**isual **a**tlas) is a foundation model for tissue imaging data that learns complex spatial representations of tissues at the molecular, cellular, and patient levels. Eva uses a novel vision transformer architecture and is pre-trained on masked image reconstruction of spatial proteomics and matched histopathology. 
 
 ### Model Architecture
-<img src="figures/model_structure.png" width="60%">
+<img src="figures/model_structure.png" width="80%">
 
 ## Installation
 
 ```bash
-# Clone the repository
 git clone https://github.com/YAndrewL/Eva.git
 cd Eva
 
-# Create and activate conda environment
 conda env create -f env.yaml
 conda activate Eva
 
-# Install the package
 pip install -e .
 ```
 
@@ -26,7 +23,7 @@ pip install -e .
 
 ### Loading the Model
 
-Eva model weights are open-sourced on [HuggingFace](https://huggingface.co/yandrewl/Eva).
+Eva model weights are open-sourced on [HuggingFace Hub](https://huggingface.co/yandrewl/Eva).
 
 ```python
 from Eva.utils import load_from_hf, extract_features, create_model
@@ -36,7 +33,7 @@ import torch
 # Load configuration
 conf = OmegaConf.load("config.yaml")
 
-# Load model from HuggingFace
+# Load model from HuggingFace Hub
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model = load_from_hf(
     repo_id="yandrewl/Eva",
@@ -47,16 +44,14 @@ model = load_from_hf(
 
 ### Downloading Marker Embeddings
 
-Download the GenePT marker embeddings from [Zenodo record](https://zenodo.org/records/10833191). Use the file **GenePT_gene_protein_embedding_model_3_text.pickle** and store it as **marker_embeddings/marker_embedding.pkl**.
+Download the GenePT marker embeddings from [Zenodo record](https://zenodo.org/records/10833191). Use the file **GenePT_gene_protein_embedding_model_3_text.pickle** and store it as **marker_embeddings/marker_embedding.pkl** locally.
 
-### Generating Embeddings
+### Extracting Embeddings
 ```python
-# Or use the convenience function
-# model = create_model(conf, repo_id="your-username/eva-base", device=device)
 
 # Extract embeddings
 patch = torch.randn(1, 224, 224, 6)  # Shape: [B, H, W, C]
-biomarkers = ["DAPI", "CD3e", "CD20", "CD4", "CD8", "PanCK"]  # List of biomarker names
+biomarkers = ["DAPI", "CD3e", "CD20", "CD4", "CD8", "PanCK"]  # biomarkers
 
 features = extract_features(
     patch=patch,
@@ -87,14 +82,14 @@ he_patch = torch.randn(1, 224, 224, 3)
 patch = torch.cat([mif_patch, he_patch], dim=-1)
 biomarkers = ["DAPI", "CD3e", "CD20", "CD4", "CD8", "PanCK", "HECHA1", "HECHA2", "HECHA3"]  # Last 3 are HE channels
 
-# Extract features using MIF channels only
+# Extract features using different modality
 features = extract_features(
     patch=patch,
     bms=[biomarkers],
     model=model,
     device=device,
     cls=False,
-    channel_mode="MIF"  # or "HE" to use HE channels only.
+    channel_mode="MIF",  # Set to "HE" to use HE channels only, or "full" to use all channels
 )
 ```
 
@@ -110,3 +105,5 @@ The model requires a configuration file (YAML format) that specifies:
 See `config.yaml` for an example configuration.
 
 ## References
+
+## Contact

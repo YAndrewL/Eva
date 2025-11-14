@@ -35,7 +35,7 @@ def load_from_hf(repo_id, conf, device="cpu", checkpoint_filename="Eva_model.ckp
         print(f"Checkpoint downloaded to: {checkpoint_path}")
         
         model = EvaMAE.from_checkpoint(checkpoint_path, conf, device=device)
-        print(f"Model loaded successfully from HuggingFace")
+        print(f"Model loaded successfully from HuggingFace Hub")
         return model
         
     except Exception as e:
@@ -107,7 +107,7 @@ def extract_features(patch, bms, model, device, cls=False, channel_mode="full"):
 
 
 def create_model(conf, checkpoint_path=None, repo_id=None, device="cpu", checkpoint_filename="Eva_model.ckpt"):
-    """Create Eva model from checkpoint or HuggingFace.
+    """Create Eva model from checkpoint or HuggingFace Hub.
 
     Args:
         conf: Configuration object
