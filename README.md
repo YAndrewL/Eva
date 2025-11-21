@@ -23,7 +23,7 @@ pip install -e .
 
 ### Loading the Model
 
-Eva model weights are open-sourced on [HuggingFace Hub](https://huggingface.co/yandrewl/Eva).
+Eva model weights are open-sourced on [HuggingFace Hub](https://huggingface.co/yandrewl/Eva) (Coming soon!).
 
 ```python
 from Eva.utils import load_from_hf, extract_features, create_model
@@ -103,7 +103,3 @@ The model requires a configuration file (YAML format) that specifies:
 - Decoder parameters (dim, n_layers, n_heads, etc.)
 
 See `config.yaml` for an example configuration.
-
-## References
-
-## Contact
