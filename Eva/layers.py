@@ -275,22 +275,10 @@ class PatchEmbedChannelFree(nn.Module):
             H == self.img_size[0] and W == self.img_size[1]
         ), f"Input image size ({H}*{W}) doesn't match model ({self.img_size[0]}*{self.img_size[1]})."
 
-        # Process each channel independently and concatenate
-        channel_embeddings = []
-        for i in range(C):
-            # Extract single channel: [B, 1, H, W]
-            channel = x[:, i : i + 1, :, :]
-            # Apply convolution: [B, embed_dim, grid_h, grid_w]
-            channel_embed = self.proj(channel)
-            # Reshape to [B, seq_len, embed_dim]
-            channel_embed = channel_embed.flatten(2).transpose(1, 2)
-            channel_embeddings.append(channel_embed)
-
-        # Concatenate all channels: [B, C * seq_len, embed_dim]
-        x = torch.cat(channel_embeddings, dim=1)
-
-        # Reshape to [B, C, seq_len, embed_dim]
-        x = x.reshape(B, C, -1, self.embed_dim)
+        x = x.view(B * C, 1, H, W)
+        x = self.proj(x)
+        x = x.flatten(2).transpose(1, 2)
+        x = x.view(B, C, -1, self.embed_dim)
 
         x = self.norm(x)
         return x
