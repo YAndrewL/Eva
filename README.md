@@ -40,6 +40,7 @@ model = load_from_hf(
     conf=conf,
     device=device
 )
+# ~30s to load the model
 ```
 
 ### Downloading Marker Embeddings
@@ -70,6 +71,7 @@ features = model.extract_features(
     cls=False,
     channel_mode="full"  # Options: "full", "HE", "MIF"
 )
+# ~0.02s to generate embedding
 ```
 
 ### Multi-modality Inputs
