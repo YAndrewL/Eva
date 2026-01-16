@@ -100,5 +100,19 @@ The model requires a configuration file (YAML format) that specifies:
 See `config.yaml` for an example configuration.
 
 
-## Paper
-Please check Eva paper at [bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1).
+## Citation
+Please check Eva paper at [bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1), and cite as:
+
+```
+@article {Liu2025.12.10.693553,
+	author = {Liu, Yufan and Sharma, Rishabh and Bieniosek, Matthew and Kang, Amy and Wu, Eric and Chou, Peter and Li, Irene and Rahim, Maha and Bauer, Erica and Ji, Ran and Duan, Wei and Qian, Li and Luo, Ruibang and Sharma, Padmanee and Dhanasekaran, Renu and Sch{\"u}rch, Christian M. and Charville, Gregory and Mayer, Aaron T. and Zou, James and Trevino, Alexandro E. and Wu, Zhenqin},
+	title = {Modeling patient tissues at molecular resolution with Eva},
+	elocation-id = {2025.12.10.693553},
+	year = {2025},
+	doi = {10.64898/2025.12.10.693553},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2025/12/12/2025.12.10.693553},
+	eprint = {https://www.biorxiv.org/content/early/2025/12/12/2025.12.10.693553.full.pdf},
+	journal = {bioRxiv}
+}
+```
