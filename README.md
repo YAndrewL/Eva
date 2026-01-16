@@ -101,7 +101,4 @@ See `config.yaml` for an example configuration.
 
 
 ## Paper
-Please check Eva paper at: https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1. 
-```
-
-
+Please check Eva paper at [bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1).
