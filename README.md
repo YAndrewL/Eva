@@ -101,7 +101,7 @@ See `config.yaml` for an example configuration.
 
 
 ## Citation
-Please check Eva paper at [bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1), and cite as:
+Please check Eva paper at [bioRxiv](https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1), and please cite as:
 
 ```
 @article {Liu2025.12.10.693553,
