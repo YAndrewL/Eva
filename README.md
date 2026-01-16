@@ -21,7 +21,7 @@ pip install -e .  # ~10min
 
 ## Getting Started
 
-For detailed and example visualization, please check our [tutorials](./tutorials/).
+For example and visualization, please check [tutorials](./tutorials/).
 
 ### Loading the Model
 
