@@ -16,7 +16,7 @@ cd Eva
 conda env create -f env.yaml
 conda activate Eva
 
-pip install -e .
+pip install -e .  # ~10min
 ```
 
 ## Getting Started
