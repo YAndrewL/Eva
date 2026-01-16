@@ -21,6 +21,8 @@ pip install -e .  # ~10min
 
 ## Getting Started
 
+For detailed and example visualization, please check our [tutorials](./tutorials/).
+
 ### Loading the Model
 
 Eva model weights are open-sourced on [HuggingFace Hub](https://huggingface.co/yandrewl/Eva).
@@ -40,7 +42,7 @@ model = load_from_hf(
     conf=conf,
     device=device
 )
-# ~30s to load the model
+# ~20s
 ```
 
 ### Downloading Marker Embeddings
@@ -62,21 +64,12 @@ features = extract_features(
     cls=False,  # Use CLS token (True) or average patches (False)
     channel_mode="full"  # Options: "full", "HE", "MIF"
 )
-
-# or use model method
-features = model.extract_features(
-    patch=patch,
-    bms=[biomarkers],
-    device=device,
-    cls=False,
-    channel_mode="full"  # Options: "full", "HE", "MIF"
-)
-# ~0.02s to generate embedding
+# ~ 31ms
 ```
 
 ### Multi-modality Inputs
 
-When data includes H&E (Hematoxylin and Eosin) channels, H&E should be added as the last three channels:
+When data include H&E (Hematoxylin and Eosin) channels, H&E should be added as the last three channels:
 
 ```python
 mif_patch = torch.randn(1, 224, 224, 6) 
@@ -105,3 +98,10 @@ The model requires a configuration file (YAML format) that specifies:
 - Decoder parameters (dim, n_layers, n_heads, etc.)
 
 See `config.yaml` for an example configuration.
+
+
+## Paper
+Please check Eva paper at: https://www.biorxiv.org/content/10.64898/2025.12.10.693553v1. 
+```
+
+
