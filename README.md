@@ -22,6 +22,7 @@ pip install -e .  # ~10min
 ## Getting Started 🚀
 
 👉 **Start with the [tutorials](./tutorials/)** for examples and visualizations.
+
 Model weights are on the HuggingFace Hub: https://huggingface.co/yandrewl/Eva
 
 They walk through:
