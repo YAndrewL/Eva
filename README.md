@@ -30,7 +30,8 @@ They walk through:
 - Downloading marker embeddings
 - Extracting embeddings
 - Working with multi-modality inputs
-- Masked prediction
+- Masked prediction (random-, patch-, and channel-masking)
+- Image translation (MIF -> H&E) and virtual staining (H&E -> MIF)
 
 A minimal quick start:
 ```python

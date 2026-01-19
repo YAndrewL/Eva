@@ -4,7 +4,7 @@ ds:  # dataset
     token_size: 8
     marker_dim: 3072 
     mask_strategy: "random"  # Required for model initialization
-    mask_ratio: 0.75  # Required for model initialization
+    mask_ratio: 0.  # Required for model initialization, set to 0 for tasks
 
 cm:  # channel model
     dim: 512
