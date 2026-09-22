@@ -21,17 +21,11 @@ pip install -e .  # ~10min
 
 ## Getting Started 🚀
 
-👉 **Start with the [tutorials](https://github.com/YAndrewL/Eva/tree/main/tutorials)** for examples and visualizations.
-
-Model weights are on the HuggingFace Hub: https://huggingface.co/yandrewl/Eva
-
-They walk through:
-- Loading the model from HuggingFace Hub
-- Downloading marker embeddings
-- Extracting embeddings
-- Working with multi-modality inputs
-- Masked prediction (random-, patch-, and channel-masking)
-- Image translation (MIF -> H&E) and virtual staining (H&E -> MIF)
+| resource | link |
+|---|---|
+| model weights | [huggingface.co/yandrewl/Eva](https://huggingface.co/yandrewl/Eva) |
+| dataset | [huggingface.co/datasets/yandrewl/Eva-data](https://huggingface.co/datasets/yandrewl/Eva-data) (gated, CC BY-NC-ND 4.0, request access on the dataset page) |
+| marker embeddings | [GenePT (Zenodo record 10833191)](https://zenodo.org/records/10833191), save `GenePT_gene_protein_embedding_model_3_text.pickle` as `marker_embeddings/GenePT_embedding.pkl` |
 
 A minimal quick start:
 ```python
@@ -54,6 +48,21 @@ features = extract_features(
     channel_mode="full",
 )
 ```
+
+## Tutorials 📓
+
+Each notebook takes one workflow step by step, with the outputs and figures of a real run saved in
+it, so GitHub shows the whole thing without you running anything. Read them in order, or jump to the
+one you need. They all switch to the repository root in their first code cell, so you can run them
+where they are, from the `tutorials` folder.
+
+| tutorial | what it covers |
+|---|---|
+| [📦 Data download and loading](tutorials/01_data_loading.ipynb) | Getting access to `Eva-data`, downloading a region, reading the `.npz` keys, looking at patches, stitching them back into a region |
+| [🚀 Basic usage and embedding generation](tutorials/02_basic.ipynb) | Loading the model from the HuggingFace Hub, marker embeddings, and patch embeddings for MIF, H&E and multi-modal inputs |
+| [🧩 Masked reconstruction](tutorials/03_masked_prediction.ipynb) | Reconstruction under random, patch and channel masking, plus image translation (MIF -> H&E) |
+| [🎨 Virtual staining from H&E](tutorials/04_virtual_stain.ipynb) | Loading the fine-tuned weights and predicting a whole panel from H&E (H&E -> MIF) |
+| [🔬 Quality control prediction](tutorials/05_qc.ipynb) | Running the image quality (NIQE-style) and artifact heads on top of Eva features |
 
 
 ## Configuration 🛠️
