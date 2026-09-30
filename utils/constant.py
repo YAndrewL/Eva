@@ -73,7 +73,7 @@ marker_to_gene = {
     "Tenascin-C": "TNC",
     "Ki67": "MKI67",
     "CD14": "CD14",
-    "CD208": "CD207",
+    "CD208": "LAMP3",
     "PGR": "PGR",
     "CXCR5": "CXCR5",
     "CXCL13": "CXCL13",
